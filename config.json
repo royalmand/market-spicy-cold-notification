@@ -1,0 +1,19 @@
+{
+  "candidate_limit": 60,
+  "launch_lookback_minutes": 30,
+  "min_liquidity_usd": 10000,
+  "strong_volume_threshold_usd": 30000,
+  "strong_txns_threshold": 80,
+  "buy_pressure_ratio": 1.5,
+  "buy_pressure_min_volume_usd": 20000,
+  "interesting_volume_threshold_usd": 50000,
+  "interesting_net_buys_threshold": 20,
+  "meteora_volume_threshold_usd": 25000,
+  "hot_score_threshold": 70,
+  "normal_score_threshold": 35,
+  "recommendation_interval_minutes": 15,
+  "breakout_interval_minutes": 5,
+  "breakout_min_delta": 12,
+  "quiet_hours_between_same_classification_alerts": 2,
+  "snapshot_history_limit": 5000
+}
