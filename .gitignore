@@ -11,13 +11,13 @@ build/
 venv/
 env/
 
-# Data & Logs (runtime files)
+# Runtime data
 data/history.jsonl
 data/service.log
 data/state.json
 
 # Secrets
-# config.json
+.env
 
 # OS
 .DS_Store
@@ -26,4 +26,3 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
-EOF

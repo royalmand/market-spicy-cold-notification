@@ -81,9 +81,9 @@ Important MVP assumptions:
 Main commands:
 
 ```bash
-python market-hot-low-notification/service.py --once
-python market-hot-low-notification/service.py
-python market-hot-low-notification/service.py --replay 20
+python service.py --once
+python service.py
+python service.py --replay 20
 ```
 
 ## VPS setup
@@ -91,7 +91,7 @@ python market-hot-low-notification/service.py --replay 20
 Upload the folder from your local machine to the VPS:
 
 ```bash
-scp -r "C:\Users\User\Desktop\mi-boti-agent\market-hot-low-notification" root@YOUR_VPS_IP:/root/
+scp -r "C:\Users\User\Desktop\market-spicy-cold-notification" root@YOUR_VPS_IP:/root/
 ```
 
 SSH into the VPS:
@@ -108,14 +108,14 @@ python3 -m pip install requests
 
 Add Telegram credentials.
 This service reads `TELEGRAM_BOT_TOKEN` and `TELEGRAM_HOME_CHANNEL` from:
-- `market-hot-low-notification/.env`
+- `market-spicy-cold-notification/.env`
 - repo root `.env`
 - `~/.hermes/.env`
 
 Simple option: create a local `.env` inside the folder:
 
 ```bash
-cd /root/market-hot-low-notification
+cd /root/market-spicy-cold-notification
 nano .env
 ```
 
@@ -129,14 +129,14 @@ TELEGRAM_HOME_CHANNEL=your_chat_id
 Run one dry check first:
 
 ```bash
-cd /root/market-hot-low-notification
+cd /root/market-spicy-cold-notification
 python3 service.py --once --dry-run
 ```
 
 Run one live recommendation:
 
 ```bash
-cd /root/market-hot-low-notification
+cd /root/market-spicy-cold-notification
 python3 service.py --once
 ```
 
@@ -145,7 +145,7 @@ python3 service.py --once
 Start the notifier in a detached `screen` session:
 
 ```bash
-cd /root/market-hot-low-notification
+cd /root/market-spicy-cold-notification
 screen -dmS market-window python3 service.py
 ```
 
@@ -179,14 +179,14 @@ If you want to restart cleanly:
 
 ```bash
 screen -S market-window -X quit
-cd /root/market-hot-low-notification
+cd /root/market-spicy-cold-notification
 screen -dmS market-window python3 service.py
 ```
 
 Replay stored history on VPS:
 
 ```bash
-cd /root/market-hot-low-notification
+cd /root/market-spicy-cold-notification
 python3 service.py --replay 20
 ```
 
