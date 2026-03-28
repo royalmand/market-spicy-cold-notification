@@ -91,7 +91,7 @@ python service.py --replay 20
 Upload the folder from your local machine to the VPS:
 
 ```bash
-scp -r "C:\Users\User\Desktop\market-spicy-cold-notification" root@YOUR_VPS_IP:/root/
+scp -r /path/to/market-spicy-cold-notification root@YOUR_VPS_IP:/root/
 ```
 
 SSH into the VPS:
