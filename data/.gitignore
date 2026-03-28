@@ -1,5 +1,29 @@
-*
-!.gitignore
-
-# Python cache
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Data & Logs (runtime files)
+data/history.jsonl
+data/service.log
+data/state.json
+
+# Secrets
+# config.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+EOF
