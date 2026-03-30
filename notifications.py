@@ -46,6 +46,29 @@ def resolve_telegram_credentials(base_dir: Optional[Path] = None) -> tuple[Optio
     return token, chat_id
 
 
+def validate_telegram_credentials(base_dir: Optional[Path] = None) -> bool:
+    """Call getMe to verify the bot token is valid before entering the main loop."""
+    token, chat_id = resolve_telegram_credentials(base_dir)
+    if not token:
+        logger.error("TELEGRAM_BOT_TOKEN is not set — cannot send notifications")
+        return False
+    if not chat_id:
+        logger.error("TELEGRAM_HOME_CHANNEL is not set — cannot send notifications")
+        return False
+    try:
+        response = requests.get(
+            f"https://api.telegram.org/bot{token}/getMe",
+            timeout=10,
+        )
+        response.raise_for_status()
+        username = response.json().get("result", {}).get("username", "unknown")
+        logger.info("Telegram bot validated: @%s  |  channel=%s", username, chat_id)
+        return True
+    except Exception as exc:
+        logger.error("Telegram credential check failed: %s", exc)
+        return False
+
+
 def send_telegram_message(
     message: str,
     *,
